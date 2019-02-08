@@ -1,3 +1,5 @@
+// ****** JS FOR FRONT END LAYOUT ****** //
+
 $(document).ready(function() {
     $('.nav-button').click(function() {
         $('.nav-button').toggleClass('change');
@@ -57,3 +59,5 @@ $(document).ready(function() {
         }
     });
 });
+
+// ******  END JS FOR FRONT END LAYOUT ****** //
