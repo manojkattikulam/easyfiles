@@ -11,5 +11,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
   <h1>Learning git now</h1>
+<?php
+
+
+use Carbon\Carbon;
+
+  $today = Carbon::now()->toDayDateTimeString();
+
+  echo $today;
+
+  ?>
 </body>
 </html>
