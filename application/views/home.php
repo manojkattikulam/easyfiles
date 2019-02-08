@@ -10,6 +10,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <title>Document</title>
 </head>
 <body>
-  <h1>Welcome to home page</h1>
+  <h1>Learning git now</h1>
 </body>
 </html>
