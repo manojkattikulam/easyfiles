@@ -20,16 +20,16 @@ public function resetpassword(){
   if($this->form_validation->run() == FALSE) {
 
     $this->load->view('templates/home_header');
-    $this->load->view('clients/cl_login');
+    $this->load->view('client/login_client/cl_login');
     $this->load->view('templates/home_footer');
 
   } else { 
 
       // Get email input from the form
-      $email = $this->input->post('email');
+      $email = $this->input->post('email',TRUE);
 
       //Check if email exist
-      $result = $this->check_register_model->checkCustomer($email);
+      $result = $this->clients_register_model->checkCustomer($email);
       $this->session->set_userdata('email', $email);
 
 
@@ -42,7 +42,7 @@ public function resetpassword(){
             $status    =  "TRUE";
 
             $subject   =  "Password Reset Link | EasyFiles";
-            $message   =  "Cher Client,\r\nVous avez demandez un nouveau mot de passe.\r\nVeuillez cliquer sur ce lien ou copier le lien et coller dans votre navigateur pour crée un nouveau mot de passe.\n\nVoici le lien: ". base_url('users/verifytoken')."/?tokenID=". $token ."&status=". $status ."\n\n Voici le code pour ce nouveau mot de passe: ". $code . "\r\nMerci\r\nCordialement,\r\nEasyFiles Support Team \r\ninfo@easyfiles.com";
+            $message   =  "Cher Client,\r\nVous avez demandez un nouveau mot de passe.\r\nVeuillez cliquer sur ce lien ou copier le lien et coller dans votre navigateur pour crée un nouveau mot de passe.\n\nVoici le lien: ". base_url('client_forgotpassword/verifytoken')."/?tokenID=". $token ."&status=". $status ."\n\n Voici le code pour ce nouveau mot de passe: ". $code . "\r\nMerci\r\nCordialement,\r\nEasyFiles Support Team \r\ninfo@easyfiles.com";
 
             // Load library and pass in the config
             $this->load->library('email');
@@ -70,19 +70,17 @@ public function resetpassword(){
                   );
 
                   // Call the model function to insert data in the reset password table
-                  $result = $this->check_login_model->insertPassResetData($data);
+                  $result = $this->clients_login_model->insertPassResetData($data);
 
                       if($result > 0){
-                        $success = "Nous venons de vous envoyé le code à votre adresse mail";
-                        $this->session->set_flashdata('message', $success);
-                        redirect('home');
+
+                        setFlashData('alert-success', 'Nous venons de vous envoyé le code à votre adresse mail','home');
                       }
           
                 } else {
+
+                  setFlashData('alert-danger', 'Envois mail échoué. Email n\'est pas valide. Ressayer avec une autre adresse mail','client_login/login');
           
-                  $error = "Envois mail échoué. Email n'est pas valide. Ressayer avec une autre adresse mail";
-                  $this->session->set_flashdata('message', $error);
-                  redirect('client_login/login');
                 }
 
 
@@ -90,10 +88,8 @@ public function resetpassword(){
         } else {
 
           // Redirect user to login page
-          $error = "Email n'est pas valide. Ressayer avec une autre adresse mail";
-          $this->session->set_flashdata('message', $error);
-          redirect('client_login/login');
-
+          setFlashData('alert-danger','Email n\'est pas valide. Ressayer avec une autre adresse mail','client_login/login');
+          
         }
 
   }
@@ -113,14 +109,12 @@ public function verifytoken(){
 
   //Check if the code and token and status are valid
     
-  $result = $this->User_model->verifyToken($tokenid, $status);
+  $result = $this->clients_login_model->verifyToken($tokenid, $status);
 
     if($result == false){
-      
-      $error = "Desolé code invalide. Ressayer";
 
-      $this->session->set_flashdata('message', $error);
-      redirect('client_login/login');
+      setFlashData('alert-danger','Desolé code expiré. Ressayer','client_login/login');
+  
 
     } else {
 
@@ -158,9 +152,9 @@ public function verifyPasswordCode(){
 
     } else {
 
-      $code   = $this->input->post('resetcode');
+      $code   = $this->input->post('resetcode', TRUE);
 
-      $result = $this->User_model->verifyCode($code);
+      $result = $this->clients_login_model->verifyCode($code);
 
       if($result){
 
@@ -168,10 +162,8 @@ public function verifyPasswordCode(){
 
       } else {
 
-        $error = "Désolé, Votre mot de passe n'est pas valide. Reessayer s'il vous plâit !";
+        setFlashData("alert-danger","Désolé, Votre code n'est pas valide. Reessayer s'il vous plâit !","client_login/login");
 
-        $this->session->set_flashdata('message', $error);
-        redirect('client_login/login');
 
       }
 
@@ -192,12 +184,13 @@ public function newpassword(){
   } else {
 
   $this->form_validation->set_rules('password', 'Password', 'required|min_length[5]');
-  $this->form_validation->set_rules('confirm_password', 'Password Confirmation', 'required|min_length[5]');
+  $this->form_validation->set_rules('confirm_password', 'Password Confirmation', 'required|min_length[5]|matches[password]');
+
 
   if($this->form_validation->run() == FALSE) {
 
     $this->load->view('templates/home_header');
-    $this->load->view('clients/forgot_password/cl_newpassword');
+    $this->load->view('client/forgot_password/cl_newpassword');
     $this->load->view('templates/home_footer');
 
   } else {
@@ -217,9 +210,7 @@ public function newpassword(){
 
           if($result > 0){
 
-            $success = "Votre nouveau mot de passe est prise en compte. Veuillez s'identifier s'il vous plait ";
-            $this->session->set_flashdata('message', $success);
-            redirect('users/login');
+            setFlashData('alert-success','Votre nouveau mot de passe est prise en compte. Veuillez s\'identifier s\'il vous plait ','client_login/login');
 
         } 
       }

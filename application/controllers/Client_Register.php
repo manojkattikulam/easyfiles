@@ -38,10 +38,9 @@ class Client_Register extends CI_Controller {
 
           $results = $this->clients_register_model->checkCustomer($data['email']);
 
-          if($results->num_rows() > 0){
+          if($results == TRUE){
 
-          $this->session->set_flashdata('message', 'Email existe déjà ! Connectez-vous à votre espace client');
-          redirect('pages');
+          setFlashData('alert-danger','Email existe déjà ! Connectez-vous à votre espace client','home'); 
 
           } else {
 
@@ -51,20 +50,20 @@ class Client_Register extends CI_Controller {
               
               if($this->sendEmailToCustomer($data)){
 
-                $this->session->set_flashdata('message', 'Vous êtes enregistré Veuillez vérifier votre email et activer le lien d\'inscription pour vous connecter à votre espace client.');
-                redirect('client_login/login');
+                setFlashData('alert-success','Vous êtes enregistré Veuillez vérifier votre email et activer le lien d\'inscription pour vous connecter à votre espace client.','client_login/login');
+
 
               } else {
 
-                $this->session->set_flashdata('message', 'L\'accompte à été crée mais l\'envois mail d\'activation de compte à échoué. Veuillez vérifié votre adresse mail');
-                redirect('client_login/login');
+                setFlashData('alert-danger','L\'accompte à été crée mais l\'envois mail d\'activation de compte à échoué. Veuillez vérifié votre adresse mail','client_login/login');
+
+                
               }
 
 
           } else {
 
-                $this->session->set_flashdata('message', 'Échec de l\'inscription. Veuillez réessayer');
-                redirect('home');
+                setFlashData('alert-danger','Échec de l\'inscription. Veuillez réessayer','home');
 
           }
 
@@ -118,29 +117,26 @@ class Client_Register extends CI_Controller {
 
             if($results) {
 
-              $this->session->set_flashdata('message', 'Votre compte est activé, veuillez vous connecter à votre espace client');
-              redirect('client_login/login');
+              setFlashData('alert-success','Votre compte est activé, veuillez vous connecter à votre espace client','client_login/login');
 
             } else {
 
-              $this->session->set_flashdata('message', 'Désolé, nous ne pouvons pas activer votre compte maintenant.');
-              redirect('client_register/register');
+              setFlashData('alert-danger','Désolé, nous ne pouvons pas activer votre compte maintenant.','client_register/register');
 
             }
 
         } else {
 
-        $this->session->set_flashdata('message', 'Le lien d\'activation du compte a expiré');
-        redirect('client_register/register');
+          setFlashData('alert-danger','Le lien d\'activation du compte a expiré','client_register/register');
 
         }
 
     } else {
 
-      $this->session->set_flashdata('message', 'Veuillez vérifier votre adresse mail et réessayer.');
-      redirect('client_register/register');
+      setFlashData('alert-danger','Veuillez vérifier votre adresse mail et réessayer','client_register/register');
 
     }
+
   }// END CONFIRM LINK TO ACTIVATE ACCOUNT
 
 

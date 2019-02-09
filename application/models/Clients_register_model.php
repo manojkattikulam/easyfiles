@@ -4,10 +4,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Clients_register_model extends CI_Model {
   
     //CHECK IF CUSTOMER EXISTS
-    public function checkCustomer($data)
+    public function checkCustomer($email)
 
     {
-      return $this->db->get_where('customers', array('email' => $data));
+      $this->db->where('email', $email);
+      $query = $this->db->get('customers');
+      if($query->num_rows() > 0){
+      return true;
+      } else {
+      return false;
+      }
 
     }
 

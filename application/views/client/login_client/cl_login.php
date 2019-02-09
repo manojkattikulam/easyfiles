@@ -7,11 +7,16 @@
 
       <div class="col-md-6 mx-auto">
 
-      <!-- MESSAGES -->
-      <?php if($this->session->flashdata('message')){
-            echo '<div class="alert alert-message my-3 p-3 text-center bg-light"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'. $this->session->flashdata('message'). '</div>';
-          } ?>
-      <!-- END OF MESSAGES -->
+<!-- ALERT MESSAGE -->       
+<?php if($this->session->flashdata('class')): ?>
+  <div class="alert <?php echo $this->session->flashdata('class');?> alert-dismissible fade show text-center" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button> 
+    <?php echo $this->session->flashdata('message');?>
+  </div>
+<?php endif; ?>
+<!--END ALERT MESSAGE -->   
 
 
 
@@ -44,7 +49,7 @@
             <button type="submit" name="btn_login" class="btn btn-outline-danger btn-block">Valider</button>
             </form>
             <div class="text-white text-center"><a class="nav-link mt-3 p-3 text-info" href="<?php echo base_url('home');?>">Pas inscrit ? Inscrivez-vous</a></div>
-            <div class="text-white text-center"><a class="nav-link text-warning" data-toggle="modal" data-target="#resetpassword" href="<?php echo base_url('client_forgotpassword/resetpassword');?>">Mot de passe oublié ?</a></div>
+            <div class="text-white text-center"><a class="nav-link text-warning" data-toggle="modal" data-target="#resetpassword" href="">Mot de passe oublié ?</a></div>
           </div>
         </div>
       </div>

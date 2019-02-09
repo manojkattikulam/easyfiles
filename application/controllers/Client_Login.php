@@ -34,9 +34,7 @@ class Client_Login extends CI_Controller {
          
             if(!$resultEmail) {
 
-              $this->session->set_flashdata('message', "
-              L'email n'exist pas.");
-              redirect('client_login/login');
+              setFlashData('alert-danger','L\'email n\'exist pas','client_login/login');
               exit();
             } 
 
@@ -44,20 +42,17 @@ class Client_Login extends CI_Controller {
             
             if($resultPassword == FALSE) {
 
-              $this->session->set_flashdata('message', "
-              Mot de passe ne correspond pas.");
-              redirect('client_login/login');
+              setFlashData('alert-danger','Mot de passe ne correspond pas','client_login/login');
               exit();
             }
 
           $resultStatus       =   $this->clients_login_model->verifyLoginStatus($email, $password);
 
             if($resultStatus == FALSE) {
-              
-              $this->session->set_flashdata('message', "
-              Votre compte n'est pas encore activé. Veuillez cliquez sur le lien envoyer à votre email pour activer votre compte ");
-              redirect('client_login/login');
+
+              setFlashData('alert-danger','Votre compte n\'est pas encore activé. Veuillez cliquez sur le lien envoyer à votre email pour activer votre compte ','client_login/login');
               exit();
+          
             } 
              
             if (($resultEmail == TRUE) AND ($resultPassword == TRUE) AND ($resultStatus == TRUE))

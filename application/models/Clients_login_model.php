@@ -94,7 +94,7 @@ class Clients_login_model extends CI_Model {
     {
 
     $this->db->where('code', $code);
-
+    
     $query  = $this->db->get('passreset');
 
     $result = $query->row();
