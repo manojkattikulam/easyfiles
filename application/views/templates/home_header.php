@@ -25,3 +25,32 @@
   <title>EasyFiles - achats fichiers clients</title>
 </head>
 <body>
+
+<!-- header -->
+<header>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top nav-menu">
+      <a href="<?php echo base_url(); ?>" class="navbar-brand text-light"><span class="h2 font-weight-bold">EASY</span><span class=" h2 orange">Files</span></a>
+      <button class="navbar-toggler nav-button" type="button" data-toggle="collapse" data-target="#myNavbar">
+        <div class="bg-light line1"></div>
+        <div class="bg-light line2"></div>
+        <div class="bg-light line3"></div>
+      </button>
+      <span class="lead text-info"> Achat de Fichiers de Prospection Qualifiés en ligne</span>
+      <div class="collapse navbar-collapse justify-content-end text-uppercase font-weight-bold" id="myNavbar">
+        <ul class="navbar-nav">
+     
+          <li class="nav-item">
+            <a href="<?php echo base_url('users/login');?>" class="nav-link m-2 menu-item"><i class="fas fa-lock text-danger mr-2"></i>Connexion</a>
+          </li>
+          <li class="nav-item">
+            <a href="<?php echo base_url('pages');?>" class="nav-link m-2 menu-item"><i class="fas fa-user text-danger mr-2"></i>Inscription</a>
+          </li>
+          <li class="nav-item">
+          <a href="<?php echo base_url('ad_dashbd');?>" class="nav-link m-2 menu-item text-muted"><i class="fas fa-cog  mr-2 text-muted"></i>admin</a>
+          </li>
+       
+        </ul>
+      </div>
+    </nav>
+    <!-- end of navbar -->
