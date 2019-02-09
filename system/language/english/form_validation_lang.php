@@ -37,16 +37,16 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$lang['form_validation_required']		= 'The {field} field is required.';
+$lang['form_validation_required']		= 'Le champ {field} est obligatoire.';
 $lang['form_validation_isset']			= 'The {field} field must have a value.';
-$lang['form_validation_valid_email']		= 'The {field} field must contain a valid email address.';
+$lang['form_validation_valid_email']		= 'Le champ {field} doit contenir une adresse mail valide.';
 $lang['form_validation_valid_emails']		= 'The {field} field must contain all valid email addresses.';
-$lang['form_validation_valid_url']		= 'The {field} field must contain a valid URL.';
+$lang['form_validation_valid_url']		= 'Le champ {field} doit contenir un url valide.';
 $lang['form_validation_valid_ip']		= 'The {field} field must contain a valid IP.';
 $lang['form_validation_valid_base64']		= 'The {field} field must contain a valid Base64 string.';
-$lang['form_validation_min_length']		= 'The {field} field must be at least {param} characters in length.';
-$lang['form_validation_max_length']		= 'The {field} field cannot exceed {param} characters in length.';
-$lang['form_validation_exact_length']		= 'The {field} field must be exactly {param} characters in length.';
+$lang['form_validation_min_length']		= 'Le champ {field} doit être au moins de {param} caractères.';
+$lang['form_validation_max_length']		= 'Le champ {field} ne doit pas dépassé {param} characters in length.';
+$lang['form_validation_exact_length']		= 'The {field} field must be exactly {param} caractères.';
 $lang['form_validation_alpha']			= 'The {field} field may only contain alphabetical characters.';
 $lang['form_validation_alpha_numeric']		= 'The {field} field may only contain alpha-numeric characters.';
 $lang['form_validation_alpha_numeric_spaces']	= 'The {field} field may only contain alpha-numeric characters and spaces.';
@@ -55,7 +55,7 @@ $lang['form_validation_numeric']		= 'The {field} field must contain only numbers
 $lang['form_validation_is_numeric']		= 'The {field} field must contain only numeric characters.';
 $lang['form_validation_integer']		= 'The {field} field must contain an integer.';
 $lang['form_validation_regex_match']		= 'The {field} field is not in the correct format.';
-$lang['form_validation_matches']		= 'The {field} field does not match the {param} field.';
+$lang['form_validation_matches']		= 'Le champ {field} ne correspond pas à la champ {param}';
 $lang['form_validation_differs']		= 'The {field} field must differ from the {param} field.';
 $lang['form_validation_is_unique'] 		= 'The {field} field must contain a unique value.';
 $lang['form_validation_is_natural']		= 'The {field} field must only contain digits.';

@@ -53,7 +53,7 @@
 
             <?php $attr_register = array('id'=>'form_register','role'=>'form');?>
 
-            <?php echo form_open('users/register', $attr_register) ?>
+            <?php echo form_open('client_register/register', $attr_register) ?>
 
             <?php echo validation_errors('<div class="alert alert-register"><a href="#" class="close ml-3" data-dismiss="alert" aria-label="close">x</a>', '</div>'); ?>
            
@@ -68,9 +68,9 @@
             </div>
             <div class="form-group">
                 <select name="sexe" class="form-control" id="gender">
-                    <option value="Sexe" <?php echo  set_select('sexe', 'Sexe', TRUE); ?>>Sexe</option>
-                    <option value="Femme" <?php echo  set_select('sexe', 'Femme'); ?>>Femme</option>
-                    <option value="Homme" <?php echo  set_select('sexe', 'Homme'); ?>>Homme</option>
+                    <option value="sexe" <?php echo  set_select('sexe', 'Sexe', TRUE); ?>>Civilité</option>
+                    <option value="M" <?php echo  set_select('sexe', 'Madame'); ?>>Madame</option>
+                    <option value="Mr" <?php echo  set_select('sexe', 'Monsieur'); ?>>Monsieur</option>
                 </select>
             </div>
             <div class="form-group">

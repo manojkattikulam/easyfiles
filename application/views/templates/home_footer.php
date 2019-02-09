@@ -26,11 +26,11 @@
         </div>
         <div class="col-lg-2 col-sm-6">
           <h5 class="pb-3 text-info">Nous contacter</h5>
-          EasyFiles management<br>
-          23 avenue Marié Curie<br>
-          49300 Bordeaux<br> 
-          Tel: 06 06 06 06 06 <br>
-          Email: <small class='text-info'>contact@easyfiles.com</small>
+          <span class="small">EasyFiles management</span><br>
+          <span class="small">23 avenue Marié Curie</span><br>
+          <span class="small">49300 Bordeaux</span><br>
+          <span class="small">Tel: 06 06 06 06 06 </span><br>
+          <small class='text-info'>Email: contact@easyfiles.com</small>
         </div>
         <div class="col-lg-4 col-sm-6">
           <h5 class="pb-3 text-info">Restons connecté</h5>

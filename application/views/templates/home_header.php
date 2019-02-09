@@ -41,13 +41,13 @@
         <ul class="navbar-nav">
      
           <li class="nav-item">
-            <a href="<?php echo base_url('users/login');?>" class="nav-link m-2 menu-item"><i class="fas fa-lock text-danger mr-2"></i>Connexion</a>
+            <a href="<?php echo base_url('client_login/login');?>" class="nav-link m-2 menu-item"><i class="fas fa-lock text-danger mr-2"></i>Connexion</a>
           </li>
           <li class="nav-item">
-            <a href="<?php echo base_url('pages');?>" class="nav-link m-2 menu-item"><i class="fas fa-user text-danger mr-2"></i>Inscription</a>
+            <a href="<?php echo base_url('home');?>" class="nav-link m-2 menu-item"><i class="fas fa-user text-danger mr-2"></i>Inscription</a>
           </li>
           <li class="nav-item">
-          <a href="<?php echo base_url('ad_dashbd');?>" class="nav-link m-2 menu-item text-muted"><i class="fas fa-cog  mr-2 text-muted"></i>admin</a>
+          <a href="<?php echo base_url('admin_dashbd');?>" class="nav-link m-2 menu-item text-muted"><i class="fas fa-cog  mr-2 text-muted"></i>admin</a>
           </li>
        
         </ul>
