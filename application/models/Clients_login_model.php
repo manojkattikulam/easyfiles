@@ -5,23 +5,41 @@ class Clients_login_model extends CI_Model {
 
   //Process User Login
 
-  public function verifyLoginData($email, $password){
+  public function verifyLoginEmail($email){
 
+    $this->db->where('email', $email);
+    $query = $this->db->get('customers');
+    if($query->num_rows() > 0){
+    return true;
+    } else {
+    return false;
+    }
+
+  }
+  public function verifyLoginPassword($password){
+   
+    $this->db->where('password', $password);
+    $query = $this->db->get('customers');
+    if($query->num_rows() > 0){
+    return true;
+    } else {
+    return false;
+    }
+
+  }
+  public function verifyLoginStatus($email, $password){
+    
     $this->db->where('email', $email);
     $this->db->where('password', $password);
     $this->db->where('status', TRUE);
     $query = $this->db->get('customers');
-
     if($query->num_rows() > 0){
-
     return true;
-
     } else {
-
     return false;
     }
 
-    }
+  }
 
     //Get user info after login
     public function getUserData($email)

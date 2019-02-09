@@ -83,7 +83,7 @@
             
 
             
-            <div class="text-white text-center"><a class="nav-link p-3 text-info" href="<?php echo base_url('users/login');?>">Déjà inscrit ? Connectez-vous</a></div>
+            <div class="text-white text-center"><a class="nav-link p-3 text-info" href="<?php echo base_url('client_login/login');?>">Déjà inscrit ? Connectez-vous</a></div>
             
             </form>
           </div>

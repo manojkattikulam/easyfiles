@@ -15,4 +15,4 @@ $autoload['config']    = array();
 
 $autoload['language']  = array();
 
-$autoload['model']     = array('clients_register_model');
+$autoload['model']     = array('clients_register_model', 'clients_login_model');

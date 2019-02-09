@@ -36,7 +36,7 @@ class Client_Register extends CI_Controller {
           $data['password']   = hash('md5', $data['password']);
           $data['elink']      = random_string('alnum', 15);
 
-          $results = $this->User_model->checkCustomer($data['email']);
+          $results = $this->clients_register_model->checkCustomer($data['email']);
 
           if($results->num_rows() > 0){
 
@@ -45,7 +45,7 @@ class Client_Register extends CI_Controller {
 
           } else {
 
-          $results = $this->User_model->addCustomer($data);
+          $results = $this->clients_register_model->addCustomer($data);
 
           if($results) {
               
@@ -80,7 +80,7 @@ class Client_Register extends CI_Controller {
   // SEND EMAIL TO CUSTOMER ON REGISTER
   private function sendEmailToCustomer($data) {
 
-    $message = '<strong> Bonjour '.$data['fullname'].'</stong><br>'.anchor(base_url('users/confirm/'.$data['elink']), 'Activer votre compte en cliquant sur ce lien');
+    $message = '<strong> Bonjour '.$data['fullname'].'</stong><br>'.anchor(base_url('client_register/confirm/'.$data['elink']), 'Activer votre compte en cliquant sur ce lien');
     $this->load->library('email');
     $this->email->set_newline('\r\n');
     $this->email->from('support@easyfiles.com');
@@ -107,38 +107,38 @@ class Client_Register extends CI_Controller {
 
     if(isset($link) && !empty($link)) {
 
-      $results = $this->User_model->checkLink($link);
+      $results = $this->clients_register_model->checkLink($link);
 
       if($results->num_rows() === 1) {
 
         $data['status']  = 1;
         $data['elink']   = $link.'ok';
 
-        $results = $this->User_model->activateAccount($data, $link);
+        $results = $this->clients_register_model->activateAccount($data, $link);
 
             if($results) {
 
               $this->session->set_flashdata('message', 'Votre compte est activé, veuillez vous connecter à votre espace client');
-              redirect('users/login');
+              redirect('client_login/login');
 
             } else {
 
               $this->session->set_flashdata('message', 'Désolé, nous ne pouvons pas activer votre compte maintenant.');
-              redirect('users/register');
+              redirect('client_register/register');
 
             }
 
         } else {
 
         $this->session->set_flashdata('message', 'Le lien d\'activation du compte a expiré');
-        redirect('users/register');
+        redirect('client_register/register');
 
         }
 
     } else {
 
       $this->session->set_flashdata('message', 'Veuillez vérifier votre adresse mail et réessayer.');
-      redirect('users/register');
+      redirect('client_register/register');
 
     }
   }// END CONFIRM LINK TO ACTIVATE ACCOUNT

@@ -9,7 +9,7 @@ public function resetpassword(){
 
   if(isset($_SESSION['login']) == TRUE ){
 
-    redirect('cl_dashbd');
+    redirect('client_dashbd');
 
   } else {
 
@@ -20,7 +20,7 @@ public function resetpassword(){
   if($this->form_validation->run() == FALSE) {
 
     $this->load->view('templates/home_header');
-    $this->load->view('users/login');
+    $this->load->view('clients/cl_login');
     $this->load->view('templates/home_footer');
 
   } else { 
@@ -29,7 +29,7 @@ public function resetpassword(){
       $email = $this->input->post('email');
 
       //Check if email exist
-      $result = $this->User_model->checkCustomer($email);
+      $result = $this->check_register_model->checkCustomer($email);
       $this->session->set_userdata('email', $email);
 
 
@@ -70,19 +70,19 @@ public function resetpassword(){
                   );
 
                   // Call the model function to insert data in the reset password table
-                  $result = $this->User_model->insertPassResetData($data);
+                  $result = $this->check_login_model->insertPassResetData($data);
 
                       if($result > 0){
                         $success = "Nous venons de vous envoyé le code à votre adresse mail";
                         $this->session->set_flashdata('message', $success);
-                        redirect('users/login');
+                        redirect('home');
                       }
           
                 } else {
           
                   $error = "Envois mail échoué. Email n'est pas valide. Ressayer avec une autre adresse mail";
                   $this->session->set_flashdata('message', $error);
-                  redirect('users/login');
+                  redirect('client_login/login');
                 }
 
 
@@ -92,14 +92,14 @@ public function resetpassword(){
           // Redirect user to login page
           $error = "Email n'est pas valide. Ressayer avec une autre adresse mail";
           $this->session->set_flashdata('message', $error);
-          redirect('users/register');
+          redirect('client_login/login');
 
         }
 
   }
 
   }
-} // END CUSTOMER PASSWORD RESET 
+} 
   
 
 // VERIFY PASSWORD RESET TOKEN
@@ -120,7 +120,7 @@ public function verifytoken(){
       $error = "Desolé code invalide. Ressayer";
 
       $this->session->set_flashdata('message', $error);
-      redirect('users/login');
+      redirect('client_login/login');
 
     } else {
 
@@ -131,7 +131,7 @@ public function verifytoken(){
       $success = "Votre code est vérifié pour ". $userEmail . " Veuillez entrez votre CODE";
 
       $this->session->set_flashdata('message', $success);
-      redirect('users/verifyPasswordCode');
+      redirect('client_forgotpassword/verifyPasswordCode');
 
     }
 
@@ -153,7 +153,7 @@ public function verifyPasswordCode(){
     if($this->form_validation->run() == FALSE){
 
       $this->load->view('templates/home_header');
-      $this->load->view('verifypasswordresetcode');
+      $this->load->view('client/forgot_password/cl_verifyresetcode');
       $this->load->view('templates/home_footer');
 
     } else {
@@ -164,14 +164,14 @@ public function verifyPasswordCode(){
 
       if($result){
 
-        redirect('users/newpassword');	
+        redirect('client_ForgotPassword/newpassword');	
 
       } else {
 
         $error = "Désolé, Votre mot de passe n'est pas valide. Reessayer s'il vous plâit !";
 
         $this->session->set_flashdata('message', $error);
-        redirect('users/login');
+        redirect('client_login/login');
 
       }
 
@@ -187,7 +187,7 @@ public function newpassword(){
 
   if(isset($_SESSION['login']) == TRUE ){
 
-    redirect('cl_dashbd');
+    redirect('client_dashbd');
 
   } else {
 
@@ -197,7 +197,7 @@ public function newpassword(){
   if($this->form_validation->run() == FALSE) {
 
     $this->load->view('templates/home_header');
-    $this->load->view('users/newpassword');
+    $this->load->view('clients/forgot_password/cl_newpassword');
     $this->load->view('templates/home_footer');
 
   } else {
@@ -206,14 +206,14 @@ public function newpassword(){
     $password  =  md5($rawpass);
     $email     =  $this->session->userdata('userEmail');
 
-    $result = $this->User_model->updateNewPassword($email, $password);
+    $result = $this->clients_login_model->updateNewPassword($email, $password);
 
     if($result > 0) {
 
       //Change the status in the password reset table to FALSE
       $status = "FALSE";
       $email  = $this->session->userdata('userEmail');
-      $result = $this->User_model->updatePasswordResetStatus($email, $status);
+      $result = $this->clients_login_model->updatePasswordResetStatus($email, $status);
 
           if($result > 0){
 
