@@ -30,7 +30,7 @@ class Client_Login extends CI_Controller {
           $raw_password       =   $this->input->post('password',TRUE);
           $password           =   hash('md5', $raw_password);
         
-          $resultEmail        =   $this->clients_login_model->verifyLoginEmail($email);
+          $resultEmail        =   $this->Clients_login_model->verifyLoginEmail($email);
          
             if(!$resultEmail) {
 
@@ -38,7 +38,7 @@ class Client_Login extends CI_Controller {
               exit();
             } 
 
-          $resultPassword     =   $this->clients_login_model->verifyLoginPassword($password);
+          $resultPassword     =   $this->Clients_login_model->verifyLoginPassword($password);
             
             if($resultPassword == FALSE) {
 
@@ -46,11 +46,11 @@ class Client_Login extends CI_Controller {
               exit();
             }
 
-          $resultStatus       =   $this->clients_login_model->verifyLoginStatus($email, $password);
+          $resultStatus       =   $this->Clients_login_model->verifyLoginStatus($email, $password);
 
             if($resultStatus == FALSE) {
 
-              setFlashData('alert-danger','Votre compte n\'est pas encore activé. Veuillez cliquez sur le lien envoyer à votre email pour activer votre compte ','client_login/login');
+              setFlashData('alert-danger',"Votre compte est inaccessible. Vérifiez si vous avez activé votre compte par courrier électronique. Si c'est le cas, votre compte est bloqué par notre administrateur. Contactez notre équipe de support pour réactiver votre compte",'client_login/login');
               exit();
           
             } 
@@ -58,7 +58,7 @@ class Client_Login extends CI_Controller {
             if (($resultEmail == TRUE) AND ($resultPassword == TRUE) AND ($resultStatus == TRUE))
             {
             // User logged in already
-            $result = $this->clients_login_model->getUserData($email);
+            $result = $this->Clients_login_model->getUserData($email);
 
             $data = array(
 

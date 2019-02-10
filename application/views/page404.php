@@ -18,7 +18,7 @@
     <div class="col-md-8 mx-auto page-404">
     
     <h1 class="display-1 text-danger text-center zeroheading"> Desolé ! </h1>
-    <p class="lead text-warning text-center zero">Nous n'avons pas trouvé la page que vous recherchez.<br>Si vous êtes inscrit chez nous, connectez-vous à notre<br> <a class="text-info" href="<?php echo base_url('client_login/login');?>">espace client</a> ou <a  class="text-info" href="<?php echo base_url('home');?>">inscrivez-vous</a></p>
+    <p class="lead text-warning text-center zero">Nous n'avons pas trouvé la page que vous recherchez.<br>Si vous êtes inscrit, connectez-vous à notre<br> <a class="text-info" href="<?php echo base_url('client_login/login');?>">espace client</a> ou <a  class="text-info" href="<?php echo base_url('home');?>">inscrivez-vous</a></p>
     
     </div>
 

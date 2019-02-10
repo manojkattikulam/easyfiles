@@ -49,8 +49,8 @@
                             <input type="hidden" name="currency_code" value="FR">
 
                             <!-- Specify return success and cancel pages. -->
-                            <input type="hidden" name="return" value="<?php echo base_url('orders/payment/') ?>">
-                            <input type="hidden" name="cancel_return" value="<?php echo base_url('dashboard/upgrade/3') ?>">
+                            <input type="hidden" name="return" value="<?php echo base_url('Client_Achat/payment/') ?>">
+                            <input type="hidden" name="cancel_return" value="<?php echo base_url('Client_Panier') ?>">
 
 
 

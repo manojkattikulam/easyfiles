@@ -75,7 +75,8 @@ class Client_Achat extends CI_Controller {
 					'product_price'  => $cart->product_price,
 					'customer_email' => $email,
 					'tx_id'          => $txId,
-					'amt'            => $amt
+					'amt'            => $amt,
+					'status'         => 'TERMINER'
 	
 				);
 
@@ -117,13 +118,13 @@ class Client_Achat extends CI_Controller {
 			unset($_SESSION['tx_st']);
 
 				$this->load->view('templates/client_header.php');
-				$this->load->view('Client/dashbd_client/cl_paymentsuccess');
+				$this->load->view('client/dashbd_client/cl_paymentsuccess');
 				$this->load->view('templates/client_footer.php');
 	
 			
 	} else {
 
-		redirect('pages');
+		redirect('home');
 
 	}
 
@@ -147,7 +148,7 @@ public function getClientOrders()
 
 				$error = "Pas de commandes pour l\'instant";
 				$this->session->set_flashdata('error', $error);
-				redirect('clients');
+				redirect('Client_Achat');
 
 		}
 	
@@ -161,16 +162,6 @@ public function clientInvoiceHtml($txId)
 	$this->load->view('client/dashbd_client/cl_achat_details',$data);
 	$this->load->view('templates/client_footer.php');
 }
-
-
-
-
-
-
-
-
-
-
 
 
 

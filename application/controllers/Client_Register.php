@@ -36,7 +36,7 @@ class Client_Register extends CI_Controller {
           $data['password']   = hash('md5', $data['password']);
           $data['elink']      = random_string('alnum', 15);
 
-          $results = $this->clients_register_model->checkCustomer($data['email']);
+          $results = $this->Clients_register_model->checkCustomer($data['email']);
 
           if($results == TRUE){
 
@@ -44,7 +44,7 @@ class Client_Register extends CI_Controller {
 
           } else {
 
-          $results = $this->clients_register_model->addCustomer($data);
+          $results = $this->Clients_register_model->addCustomer($data);
 
           if($results) {
               
@@ -106,14 +106,14 @@ class Client_Register extends CI_Controller {
 
     if(isset($link) && !empty($link)) {
 
-      $results = $this->clients_register_model->checkLink($link);
+      $results = $this->Clients_register_model->checkLink($link);
 
       if($results->num_rows() === 1) {
 
         $data['status']  = 1;
         $data['elink']   = $link.'ok';
 
-        $results = $this->clients_register_model->activateAccount($data, $link);
+        $results = $this->Clients_register_model->activateAccount($data, $link);
 
             if($results) {
 
@@ -137,7 +137,7 @@ class Client_Register extends CI_Controller {
 
     }
 
-  }// END CONFIRM LINK TO ACTIVATE ACCOUNT
+  }
 
 
 
