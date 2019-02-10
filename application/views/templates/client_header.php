@@ -80,7 +80,7 @@
   <div class="modal-dialog" role="document">
 
   <?php $attributes = array('role' => 'form' ); ?>   
-  <?php echo form_open_multipart('clients/logout', $attributes);?>
+  <?php echo form_open_multipart('Client_Dashbd/logout', $attributes);?>
 
     <div class="modal-content bg-dark">
       <div class="modal-header text-warning p-5">

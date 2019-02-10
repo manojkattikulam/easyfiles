@@ -34,7 +34,6 @@ $autoload['model']     = array(
 'Clients_download_model',
 'Clients_login_model',
 'Clients_panier_model',
-'Clients_payment_model',
 'Clients_register_model',
 'Admins_category_model',
 'Admins_client_model',

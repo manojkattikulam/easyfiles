@@ -1,48 +1,30 @@
-<!-- tables -->
+
+<!--TABLE SECTION-->
 <section>
-    <div class="container-fluid">
-           
-        
-            <div class="col-md-5 mt-5 mx-auto">
+<div class="container dashbd-client">
+  <div class="row mb-5">
+    <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">     
 
-             <!-- MESSAGES -->
-             <?php 
-                if($this->session->flashdata('message')){
-                echo '<div class="alert alert-message my-3 p-3 text-center bg-danger text-white"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'. $this->session->flashdata('message'). '</div>';} 
-            ?>
-            <!-- END OF MESSAGES -->
+       
+ 
+<div class="col-12 text-center ">
+    <h2 class="display-5 m-5 text-success">Merci pour votre commande</h2>
 
-              <!-- update profile form begin here -->
+    <p>Achat réussi! Cher <?php echo $this->session->userdata('fullname'); ?>&nbsp;merci pour votre achat. </p>
 
-                 <?php $attr_register = array('id'=>'form_register','role'=>'form');?>
+    <p>Votre détails d'achat est envoyé à votre email:&nbsp;<?php echo $this->session->userdata('email'); ?>.</p>
+   <p> Veuillez garder le numéro de transactions pour le réference.</p>
 
-                <?php echo form_open('Client_Profile/updateCustomer', $attr_register) ?>
+    <p><a href="<?php echo base_url('orders/telecharger');?>">Télécharger votre fichiers</a></p>              
+</div>
 
-                <?php echo validation_errors('<div class="alert alert-register"><a href="#" class="close ml-3" data-dismiss="alert" aria-label="close">x</a>', '</div>'); ?>
+  
 
-                <input type="hidden" name ="userId" class="form-control" value="<?php echo $customer[0]['id'];?>" > 
 
-                <div class="form-group">
-                <input type="text" name ="fullname" class="form-control" value="<?php echo $customer[0]['fullname'];?>" > 
-                </div>
-                <div class="form-group">
-                <input type="text" name ="profession" class="form-control" value="<?php echo $customer[0]['profession'];?>"> 
-                </div>
-                <div class="form-group">
-                <input type="email" name="email" class="form-control"  value="<?php echo $customer[0]['email'];?>"> 
-                </div>
-               
-                <button type="submit" name="btn_register" class="btn btn-info btn-block">Modifier</button>
-                </form>
-
-               
-
-            </div>
-
-        
-    </div>
+    </div><!--end of div col-xl-10 -->
+  </div><!--end of row-->
+</div><!--end of container fluid-->
 </section>
-<!-- end of tables -->
 
 <!--//////////////  ENVOIS MESSAGE SUPPORT CLIENT  //////////////////--->
 

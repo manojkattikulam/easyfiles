@@ -59,7 +59,7 @@
                 <td class="text-danger font-weight-bold"><?php echo $allproduct->pro_price.'€'; ?></td> 
                          
                 <td class="text-center">
-                <?php echo form_open('cart/addToCart/'); ?>
+                <?php echo form_open('Client_Panier/addToCart/'); ?>
                     <input type="hidden" name="proId" value="<?php echo $allproduct->pro_id; ?>">
                     <input type="hidden" name="sId" value="<?php echo session_id(); ?>">
                     <input type="hidden" name="userId" value="<?php echo $this->session->userdata['user_id']; ?>">
@@ -95,7 +95,7 @@
   <div class="modal-dialog" role="document">
 
   <?php $attributes = array('role' => 'form' ); ?>   
-  <?php echo form_open_multipart('clients/sendmessage', $attributes);?>
+  <?php echo form_open_multipart('Client_Dashbd/sendmessage', $attributes);?>
 
     <div class="modal-content bg-dark ">
       <div class="modal-header text-warning p-4">

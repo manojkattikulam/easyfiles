@@ -54,7 +54,7 @@ class Client_Dashbd extends CI_Controller {
 
     session_destroy(); 
 
-    redirect('pages');
+    redirect('home');
 
   }
 
@@ -91,7 +91,52 @@ class Client_Dashbd extends CI_Controller {
       
     }
 
-    
+    public function sendmessage()
+    {
+  
+      $this->form_validation->set_rules('message', 'Message Body', 'trim|required|min_length[5]');
+  
+        if($this->form_validation->run() == FALSE) {
+  
+          setFlashData('alert-danger', 'Le message doit comporter plus de 5 caractères', 'clients');
+  
+        } else {
+  
+          $msgBody      = $this->input->post('message');
+          $supportEmail = $this->input->post('support_email');
+  
+          //Create session for user
+          $this->session->set_userdata('msgBody', $msgBody);
+          $this->session->set_userdata('adminEmail', $supportEmail);
+  
+          // Load library and pass in the config
+          $this->load->library('email');
+          $this->email->set_newline('\r\n');
+  
+          $userEmail   = $this->session->userdata('email');
+          $userName    = $this->session->userdata('fullname');
+          $email       = $supportEmail;
+          $subject     = substr($msgBody, 0, 20);
+  
+          $this->email->from($userEmail, $userName);
+          $this->email->to($email);
+          $this->email->subject($subject);
+          $this->email->message($msgBody);
+  
+          if($this->email->send()) {
+  
+            setFlashData('alert-danger', 'Le message est envoyé', 'Client_Dashbd');
+  
+          } else {
+  
+           
+            setFlashData('alert-danger', 'Le message n\'a pas pu être envoyé', 'Client_Dashbd');
+          }
+        
+        }
+  
+    }
+  
 
 
 
