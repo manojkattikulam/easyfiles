@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Admins_category_model extends CI_Model {
 
   
+
   // ADD CATEGORIES TO DATABASE
   public function addCategories($data)
   {
@@ -45,7 +46,22 @@ class Admins_category_model extends CI_Model {
     return $this->db->count_all('category');
   }
 
-  
+  // FETCH ALL CATEGORIES FOR PAGINATION
+  public function fetchAllCategories($limit, $start)
+  {
+    $this->db->limit($limit, $start);
+    $query = $this->db->get_where('category', array('cat_status' => 1));
+
+    if($query->num_rows() > 0) {
+
+      foreach($query->result() as $row)
+      {
+          $data[] = $row;
+      }
+      return $data;     
+    } 
+      return false;
+  }
 
    // CHECK IF CATEGORY ID EXIST IN DATABASE FOR EDIT
    public function checkCategoryIdExist($cId)
@@ -68,6 +84,10 @@ class Admins_category_model extends CI_Model {
     return $this->db->delete('category');
 
    }
+
+
+   
+
 
 
    
