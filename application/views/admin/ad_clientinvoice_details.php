@@ -8,13 +8,13 @@
               <div class="col-md-6 col-lg-10">             
                 <div class="row align-items-start justify-content-end mb-5">
                     <div class="col-md-6 col-lg-10 align-self-start text-left">
-                    <a class="btn btn-info mb-5" href="<?php echo base_url('ad_clients/adminDetailClient/'.$invoices[0]->customer_id);?>">Retour</a>
+                    <a class="btn btn-info mb-5" href="<?php echo base_url('Admin_Client/adminDetailClient/'.$invoices[0]->customer_id);?>">Retour</a>
                         <h3>Easy<span class="text-danger">Files</span> Management</h3>
                        
                            
                     </div>
                     <div class="col-md-6 col-lg-10 align-self-start text-right">
-                        Nom: <span class="text-success"><?php echo $this->session->userdata('fullname');?></span><br>
+                        Nom: <span class="text-success"><?php echo $this->session->userdata('clientname');?></span><br>
                         N°Facture: <span class="text-success"><?php echo $invoices[0]->tx_id; ?></span> <br>   
                     </div>
                 </div>

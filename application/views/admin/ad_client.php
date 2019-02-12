@@ -46,6 +46,7 @@
                 <?php foreach($allClients as $allclient): ?>
                 <tr>
                 <td class="text-uppercase font-weight-bold"><?php echo $allclient->fullname; ?></td>
+               
                 <td><?php echo $allclient->profession; ?></td>
                 <td><?php echo $allclient->email; ?></td>
                 <td><?php echo $allclient->totalOrders; ?></td>

@@ -7,8 +7,7 @@
 
         <!--CONTENT DIV -->
         <div class="col-12 mb-4 mb-xl-0">
-
-
+      
 
         <!-- ALERT MESSAGE -->       
         <?php if($this->session->flashdata('class')): ?>
@@ -20,6 +19,7 @@
             </div>
         <?php endif; ?>
         <!--END ALERT MESSAGE -->  
+<!-- Button trigger modal -->
 
         <h3 class="text-success mb-3">Votre Panier</h3>
         <div class="row">
@@ -100,8 +100,9 @@
                    
                </tr>
                <tr >
-                   <td></td>
-                   <td><a class="btn btn-dark text-warning" href="Client_Dashbd">Continuer vos achats</a></td>
+                <td><a class="btn btn-dark text-warning" href="Client_Dashbd">Continuer vos achats</a></td>
+                   <td><button type="button" class="btn btn-secondary text-white" data-toggle="modal" data-target="#currency" onclick="convertCurrency();">Convertisseur de divises</button></td>
+                   
 
                    <!--PAY PAL CHECKOUT FORM WITH BUTTON-->
                    <td>
@@ -216,3 +217,69 @@
 
 
 <!--//////////////  FIN ENVOIS MESSAGE SUPPORT CLIENT  //////////////////--->
+
+ <!-- Currency converter -->
+ <div class="modal fade" id="currency" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content bg-dark text-danger">
+              <div class="modal-header">
+              <h1 class="modal-title display-4"> Convertisseur<br>de devises </h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+              
+
+<div class="form-group">
+
+  <div class="row m-3">
+    <div class="col-md-6 mb-2 ">
+    <input class="form-control form-control-lg text-danger" id="fromAmount" type="text" size="5" value="<?php echo $gtotal; ?>" onkeyup="convertCurrency();"/>
+    </div>
+    <div class="col-md-6  mb-2">
+    <select id="from" class="form-control form-control-lg"  onchange="convertCurrency();">
+            <option value="CNY">Chinese yuan (CNY)</option>                
+            <option value="CAD">Canadian Dollar (CAD)</option>
+            <option value="CHF">Swiss Franc (CHF)</option>
+            <option value="DKK">Danish Krone (DKK)</option>
+            <option value="GBP">Pound Sterling (GBP)</option>                 
+            <option value="INR">Indian Rupee (INR)</option>
+            <option value="JPY">Japanese Yen (JPY)</option>
+            <option value="RUB">Russian Ruble (RUB)</option>
+            <option value="USD">US Dollar (USD)</option>
+            <option value="EUR" selected>EURO (EUR)</option>
+        </select>
+    </div>
+  </div>
+
+  <div class="row m-3">
+    <div class="col-md-6  mb-2 ">
+    <input class="form-control form-control-lg  text-danger" id="toAmount" type="text" size="5" disabled/>
+    </div>
+    <div class="col-md-6  mb-2 ">
+    <select id="to" class="form-control form-control-lg"  onchange="convertCurrency();">
+            <option value="CNY"> Chinese yuan (CNY)</option>                
+            <option value="CAD">Canadian Dollar (CAD)</option>
+            <option value="CHF">Swiss Franc (CHF)</option>
+            <option value="DKK">Danish Krone (DKK)</option>
+            <option value="GBP">Pound Sterling (GBP)</option>                 
+            <option value="INR" selected>Indian Rupee (INR)</option>
+            <option value="JPY">Japanese Yen (JPY)</option>
+            <option value="RUB">Russian Ruble (RUB)</option>
+            <option value="USD" selected>US Dollar (USD)</option>
+            <option value="EUR">EURO (EUR)</option>
+        </select>
+    </div>
+  </div>
+
+
+
+</div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>

@@ -52,6 +52,15 @@ class Admins_client_model extends CI_Model {
   
    }
 
+   public function getInvoiceDetails($txId)
+   {
+     $this->db->where('tx_id', $txId);
+     return $this->db->get('orders')->result();
+
+
+   
+   }
+
 
 
 

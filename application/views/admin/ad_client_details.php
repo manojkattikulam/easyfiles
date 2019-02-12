@@ -27,6 +27,9 @@
 
         <?php if($fullClientDetails) : ?>
 
+        <?php $this->session->set_userdata('clientname', $fullClientDetails[0]->fullname); ?>
+        <?php $this->session->set_userdata('clientid', $fullClientDetails[0]->id); ?>
+
         <div class="row align-items-center">            
               <div class="col-md-6 col-lg-10">             
                 <div class="row align-items-start justify-content-end">
@@ -70,10 +73,10 @@
 
                 <td width="5%">
                
-                <a class="btn" href="<?php echo base_url('ad_clients/adminClientInvoiceHtml/'.$fullClientDetail->tx_id); ?>"  data-toggle="tooltip" data-placement="top" title="VOIR"><i class="fas fa-eye text-success fa-2x mr-2"></i></a>
+                <a class="btn" href="<?php echo base_url('Admin_Client/adminClientInvoiceHtml/'.$fullClientDetail->tx_id); ?>"  data-toggle="tooltip" data-placement="top" title="VOIR"><i class="fas fa-eye text-success fa-2x mr-2"></i></a>
                 </td>
                 <td width="5%">
-                <a class="btn" href="<?php echo base_url('orders/pdfdetails/'.$fullClientDetail->tx_id);?>"  data-toggle="tooltip" data-placement="top" title="TELECHARGER"><i class="fa fa-file-pdf text-orange fa-2x" ></i></a>  
+                <a class="btn" href="<?php echo base_url('Admin_Order/pdfdetails/'.$fullClientDetail->tx_id);?>"  data-toggle="tooltip" data-placement="top" title="TELECHARGER"><i class="fa fa-file-pdf text-orange fa-2x" ></i></a>  
                </td>
                
 
@@ -94,4 +97,3 @@
   </div><!--end of row-->
 </div><!--end of container fluid-->
 </section>
-   

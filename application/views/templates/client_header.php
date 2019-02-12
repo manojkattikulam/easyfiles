@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="<?php echo base_url("assets/css/backend.css"); ?>">
 
   <title>EasyFiles - achats fichiers clients</title>
+
 </head>
 <body>
 
@@ -114,7 +115,7 @@
             <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
                 <div class="row pt-md-5 mt-md-3 ">
                 <div class="col-xl-3 col-sm-6 p-2 ">
-                    <a class="c_panier" href="<?php echo base_url('cart'); ?>">
+                    <a class="c_panier" href="<?php echo base_url('Client_Panier'); ?>">
                         <div class="card card-common bg-info">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between">
@@ -132,7 +133,7 @@
                     </a>
                     </div>
                     <div class="col-xl-3 col-sm-6 p-2">
-                    <a class="c_panier" href="<?php echo base_url('orders/getClientOrders'); ?>">
+                    <a class="c_panier" href="<?php echo base_url('Client_Achat/getClientOrders'); ?>">
                         <div class="card card-common bg-success">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between">
@@ -149,7 +150,7 @@
                        </a>
                     </div>
                     <div class="col-xl-3 col-sm-6 p-2">
-                    <a class="c_panier" href="<?php echo base_url('orders/telecharger'); ?>">
+                    <a class="c_panier" href="<?php echo base_url('Client_Download/telecharger'); ?>">
                         <div class="card card-common bg-warning">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between">

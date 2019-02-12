@@ -46,18 +46,7 @@ public function force_download()
 
 }
 
-public function pdfdetails($txId)
- {
 
-		$html_content = '<a href="'.base_url().'Client_Achat/getClientOrders">Retour</a>';	
-		$html_content .= '<h1 align="center">Facture - EasyFile Management</h1>';
-		$html_content .= '<h3 align="right">'.$this->session->userdata('fullname').'</h3>';
-		$html_content .= $this->Clients_achat_model->fetch_invoice_details($txId);
-		$this->pdf->loadHtml($html_content);
-		$this->pdf->render();
-		$this->pdf->stream("".$txId.".pdf", array("Attachment"=>1));
-		
- }
 
 
 

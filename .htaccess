@@ -2,7 +2,7 @@
 
 
 RewriteEngine On
-RewriteBase /efiles2/
+RewriteBase /efiles/
 
 RewriteCond %{REQUEST_URI} ^system.*
 RewriteRule ^(.*)$ /index.php?/$1 [L]

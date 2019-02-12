@@ -192,8 +192,6 @@ class Admin_Client extends CI_Controller {
    public function adminDetailClient($client_id){
   
     $data['fullClientDetails'] = $this->Admins_client_model->getClientFullDetails($client_id);
-    // $data['fullInvoiceDetails'] = $this->Ad_dashbd_model->getClientFullDetails($txId);
-  
     $this->load->view('templates/admin_header.php');
     $this->load->view('admin/ad_client_details',$data);
     $this->load->view('templates/admin_footer.php');
@@ -203,7 +201,7 @@ class Admin_Client extends CI_Controller {
    public function adminClientInvoiceHtml($txId) 
   {
   
-    $data['invoices'] = $this->Admins_achat_model->getInvoiceDetails($txId);
+    $data['invoices'] = $this->Admins_client_model->getInvoiceDetails($txId);
   
     $this->load->view('templates/admin_header.php');
     $this->load->view('admin/ad_clientinvoice_details',$data);

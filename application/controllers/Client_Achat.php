@@ -163,6 +163,21 @@ public function clientInvoiceHtml($txId)
 	$this->load->view('templates/client_footer.php');
 }
 
+public function pdfdetails($txId)
+ {
 
+		$previous = "javascript:history.go(-1)";
+			if(isset($_SERVER['HTTP_REFERER'])) {
+			$previous = $_SERVER['HTTP_REFERER'];
+			}
+		$html_content = '<a href="'.$previous.'">Retour</a>';		
+		$html_content .= '<h1 align="center">Facture - EasyFile Management</h1>';
+		$html_content .= '<h3 align="right">'.$this->session->userdata('fullname').'</h3>';
+		$html_content .= $this->Clients_achat_model->fetch_invoice_details($txId);
+		$this->pdf->loadHtml($html_content);
+		$this->pdf->render();
+		$this->pdf->stream("".$txId.".pdf", array("Attachment"=>0));
+		
+ }
 
 }//END

@@ -60,6 +60,16 @@ $(document).ready(function() {
             $('.card-3').removeClass('moveFromRight');
         }
     });
+
+
+
+
 });
+
+
+
+
+
+
 
 // ******  END JS FOR FRONT END LAYOUT ****** //
