@@ -19,7 +19,15 @@ $autoload['libraries'] = array(
 
 $autoload['drivers']   = array();
 
-$autoload['helper']    = array('form', 'url', 'path', 'security', 'file', 'string','custom_helper');
+$autoload['helper']    = array(
+  'form', 
+  'url', 
+  'path', 
+  'security', 
+  'file', 
+  'string',
+  'custom_helper'
+);
 
 $autoload['config']    = array();
 

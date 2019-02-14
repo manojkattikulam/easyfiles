@@ -1,10 +1,12 @@
 $('[data-toggle="tooltip"]').tooltip();
-
+let urlbase = "http://localhost/efiles/";
 
 function send_mail(id) {
 
+
+
     $.ajax({
-        url: "Admin_Dashbd/getClientForEmail/" + id,
+        url: urlbase + "Admin_Dashbd/getClientForEmail/" + id,
         type: "GET",
         dataType: "JSON",
         success: function(data) {

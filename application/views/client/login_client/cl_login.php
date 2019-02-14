@@ -33,23 +33,24 @@
 
           <?php $attr_register = array('id'=>'form_register','role'=>'form');?>
 
-          <?php echo form_open('client_login/login', $attr_register) ?>
+          <?php echo form_open('Client_Login/login', $attr_register) ?>
 
           <?php echo validation_errors('<div class="alert alert-register"><a href="#" class="close ml-3" data-dismiss="alert" aria-label="close">x</a>', '</div>'); ?>
 
             
-            <div class="form-group">
-              <input type="email" name="email" class="form-control" placeholder="Votre Email" value="<?php echo set_value('email'); ?>"> 
+          <div class="form-group">
+              <input type="text" name ="email" class="form-control" value="<?php echo set_value('email'); ?>" placeholder="Votre email"> 
             </div>
            
             <div class="form-group">
-              <input type="password" name ="password" class="form-control" placeholder="Mot de passe" value="<?php echo set_value('password'); ?>"> 
+              <input type="password" name ="password" class="form-control"  value="<?php echo set_value('password'); ?>"> 
             </div>
             
             <button type="submit" name="btn_login" class="btn btn-outline-danger btn-block">Valider</button>
             </form>
             <div class="text-white text-center"><a class="nav-link mt-3 p-3 text-info" href="<?php echo base_url('home');?>">Pas inscrit ? Inscrivez-vous</a></div>
-            <div class="text-white text-center"><a class="nav-link text-warning" data-toggle="modal" data-target="#resetpassword" href="">Mot de passe oublié ?</a></div>
+            
+            <div class="text-white text-center"><a class="nav-link text-warning" href="">Mot de passe oublié ?</a></div>
           </div>
         </div>
       </div>
@@ -77,7 +78,7 @@
             <div class="modal-body">
             <?php $attr_register = array('id'=>'form_resetpassword','role'=>'form');?>
 
-              <?php echo form_open('client_forgotpassword/resetpassword', $attr_register) ?>
+              <?php echo form_open('Client_ForgotPassword/resetpassword', $attr_register) ?>
 
               <?php echo validation_errors('<div class="alert alert-register"><a href="#" class="close ml-3" data-dismiss="alert" aria-label="close">x</a>', '</div>'); ?>
 
@@ -86,7 +87,7 @@
               <input type="email" name="email" class="form-control" placeholder="Votre Email" value="<?php echo set_value('email'); ?>"> 
               </div>
 
-              <button type="submit" name="btn_resetpassword" class="btn btn-outline-danger btn-block">Envoyé</button>
+              <button id="resetpass" type="submit" name="btn_resetpassword" class="btn btn-outline-danger btn-block">Envoyé</button>
               </form>
 
             </div><!--end of modal body-->

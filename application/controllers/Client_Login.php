@@ -15,8 +15,8 @@ class Client_Login extends CI_Controller {
 
       //validate form inputs
 
-      $this->form_validation->set_rules('email', 'Email', 'required');
-      $this->form_validation->set_rules('password', 'Password', 'required');
+      $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+      $this->form_validation->set_rules('password', 'Password', 'trim|required');
 
       if($this->form_validation->run() == FALSE) {
 
@@ -35,7 +35,7 @@ class Client_Login extends CI_Controller {
             if(!$resultEmail) {
 
               setFlashData('alert-danger','L\'email n\'exist pas','client_login/login');
-              exit();
+              
             } 
 
           $resultPassword     =   $this->Clients_login_model->verifyLoginPassword($password);
@@ -43,7 +43,7 @@ class Client_Login extends CI_Controller {
             if($resultPassword == FALSE) {
 
               setFlashData('alert-danger','Mot de passe ne correspond pas','client_login/login');
-              exit();
+            
             }
 
           $resultStatus       =   $this->Clients_login_model->verifyLoginStatus($email, $password);
@@ -51,7 +51,7 @@ class Client_Login extends CI_Controller {
             if($resultStatus == FALSE) {
 
               setFlashData('alert-danger',"Votre compte est inaccessible. Vérifiez si vous avez activé votre compte par courrier électronique. Si c'est le cas, votre compte est bloqué par notre administrateur. Contactez notre équipe de support pour réactiver votre compte",'client_login/login');
-              exit();
+              
           
             } 
              

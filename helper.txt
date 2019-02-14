@@ -73,50 +73,6 @@
     </section>
     <!-- end of tables -->
 
-<div class="row">
-  <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
-    <div class="row m-2">
-      <div class="col-md-4  mb-4 mb-xl-0">
-      <div class="card">
-        <div class="card-header bg-dark text-white">
-        <h5>Créer des tâches</h5>
-        </div>
-          <div class="card-body">
-          <div class="container">
-          <form id="task-form">
-            <div class="form-group"><input id="title" class="form-control form-control-lg tache" type="text" placeholder="Nom de tâches"></div>
-            <div class="form-group">
-            <textarea id="taches" class="form-control" rows="3"></textarea>
-            </div>
-            <input type="submit" class="btn btn-dark text-warning mb-2" value="Ajouter">
-            </form>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-8  mb-4 mb-xl-0">
-        <div class="card">
-          <div class="card-header bg-dark text-white">        
-            <div class="col-md-6"><h5>Liste de tâches</h5></div>
-          </div>
-          <div class="card-body">
-          <h5 class="card-title"></h5>
-          <table class="table task-tbl">
-          <thead>
-          <th class="text-danger text-uppercase">Nom de la tâche</th>
-          <th class="text-danger text-uppercase">Tâche à finir</th>
-          </thead>
-          <tbody id="task-list"></tbody>
-          
-          </table>
-
-          </div>
-        </div>
-      </div>
-    </div>   
-  </div>    
-</div>
-
 
     <!--//////////////  ENVOIS MESSAGE CLIENT  //////////////////--->
 

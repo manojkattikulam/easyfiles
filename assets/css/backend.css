@@ -274,6 +274,37 @@ a.c_panier {
     box-shadow: none;
 }
 
+input.filter {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #f9612b;
+}
+
+.task-success,
+.task-error {
+    color: white;
+    padding: 10px;
+    margin: 5px 0 10px 0;
+}
+
+.task-success {
+    background: green;
+}
+
+.task-error {
+    background: red;
+}
+
+table.task-tbl {
+    box-shadow: none;
+}
+
+table.task-tbl th {
+    border: none;
+    border-bottom: 1px dotted grey;
+}
+
 @media (max-width: 768px) {
     .sidebar {
         position: static;

@@ -29,7 +29,7 @@ public function resetpassword(){
       $email = $this->input->post('email',TRUE);
 
       //Check if email exist
-      $result = $this->clients_register_model->checkCustomer($email);
+      $result = $this->Clients_register_model->checkCustomer($email);
       $this->session->set_userdata('email', $email);
 
 
@@ -70,7 +70,7 @@ public function resetpassword(){
                   );
 
                   // Call the model function to insert data in the reset password table
-                  $result = $this->clients_login_model->insertPassResetData($data);
+                  $result = $this->Clients_login_model->insertPassResetData($data);
 
                       if($result > 0){
 
@@ -109,7 +109,7 @@ public function verifytoken(){
 
   //Check if the code and token and status are valid
     
-  $result = $this->clients_login_model->verifyToken($tokenid, $status);
+  $result = $this->Clients_login_model->verifyToken($tokenid, $status);
 
     if($result == false){
 
@@ -154,7 +154,7 @@ public function verifyPasswordCode(){
 
       $code   = $this->input->post('resetcode', TRUE);
 
-      $result = $this->clients_login_model->verifyCode($code);
+      $result = $this->Clients_login_model->verifyCode($code);
 
       if($result){
 
@@ -199,14 +199,14 @@ public function newpassword(){
     $password  =  md5($rawpass);
     $email     =  $this->session->userdata('userEmail');
 
-    $result = $this->clients_login_model->updateNewPassword($email, $password);
+    $result = $this->Clients_login_model->updateNewPassword($email, $password);
 
     if($result > 0) {
 
       //Change the status in the password reset table to FALSE
       $status = "FALSE";
       $email  = $this->session->userdata('userEmail');
-      $result = $this->clients_login_model->updatePasswordResetStatus($email, $status);
+      $result = $this->Clients_login_model->updatePasswordResetStatus($email, $status);
 
           if($result > 0){
 
