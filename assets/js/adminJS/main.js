@@ -52,7 +52,7 @@ document.getElementById('task-list').addEventListener('click', function(e) {
     // Show message
     ui.showAlert('Tâches supprimer !', 'task-success')
 
-    location.reload();
+
 
     e.preventDefault();
 });

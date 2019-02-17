@@ -49,6 +49,6 @@ $autoload['model']     = array(
 'Admins_login_model',
 'Admins_order_model',
 'Admins_product_model',
-'Testajax_model'
+
 
 );
