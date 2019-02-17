@@ -18,11 +18,45 @@
             <?php echo $this->session->flashdata('message');?>
             </div>
         <?php endif; ?>
-        <!--END ALERT MESSAGE -->  
+        <!--END ALERT MESSAGE --> 
 
-        <h3 class="text-success mb-3">Acheter vos fichiers</h3>
+        <!--SEARCH FORM -->
+
+        <div class="row bg-dark text-muted p-3 mb-5">
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="continent">Séléctionner le continent</label>
+              <select class="form-control" id="continent">
+              <?php foreach($getCatClients as $catClients): ?>
+                <option value="<?php echo $catClients->cat_id ?>"><?php echo $catClients->cat_name ?></option>
+              <?php endforeach; ?>
+              </select>
+            </div>         
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="searchCountry">Rechercher le Fichier par Ville</label>
+              <input type="text" class="form-control" name="searchCity" id="searchCity" placeholder="Chercher une ville...">
+            </div>
+          </div>
+          <div class="col-12">
+           <div id ="searchResults" class="col-12 my-5"></div>
+        </div>
+
+        </div>
+        <!-- SEARCH RESULTS -->
+       
+
+
+       <!-- ACHATS -->
         <div class="row">
            <div class="col-12">
+
+           <h3 class="text-success mb-3">Acheter vos fichiers</h3>
+
+    
         Trier par zone géographique : 
 
             <ul class="clientCat float-right">
@@ -131,4 +165,24 @@
 </div>
 
 
-<!--//////////////  FIN ENVOIS MESSAGE SUPPORT CLIENT  //////////////////--->
+<!--AJAX LIVE SEARCH--->
+<script>
+$('#searchCity').keyup(function(){
+  var searchCont = $('#continent').val();
+  var searchCity = $('#searchCity').val();
+
+  $.ajax({
+
+    url:'<?php echo base_url(); ?>Client_dashbd/processSearchAjax',
+    data: {getCont:searchCont , getCity:searchCity},
+    type: 'POST',
+    success: function(result) {
+      if(!result.error)
+      {
+        $('#searchResults').html(result);
+      }
+    }
+
+  });
+});
+</script>

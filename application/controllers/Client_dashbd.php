@@ -136,7 +136,65 @@ class Client_Dashbd extends CI_Controller {
         }
   
     }
-  
+
+    public function processSearchAjax()
+    {
+      $searchCont = $this->input->post('getCont');
+      $searchCity = $this->input->post('getCity');
+
+      $data['results'] = $this->Clients_dashbd_model->SearchAjax($searchCont, $searchCity);
+
+      if($data['results']) {
+
+        $results = $data['results'];
+
+        foreach($results as $product)
+        {
+          echo 'Résultat trouvé sont les suvivants: <br>';
+
+          echo  
+          
+          '<table id="product_tbl" class="table table-bordered bg-muted">
+
+          <thead class="bg-dark text-white"> 
+              <tr class="text-muted"> 
+              <th>Fichier</th>                   
+              <th>Nom du Produit</th>
+              <th>Description</th>
+              <th>Prix</th>
+              <th>Action</th>
+              </tr>
+          </thead>
+          <tbody>
+              
+              <tr>
+              <td class="font-italic">'.$product->pro_file.'</td>  
+              <td class="font-weight-bold text-uppercase">'.$product->pro_name.'</td>
+              <td>'.$product->pro_desc.'</td>
+              <td class="text-danger font-weight-bold">'.$product->pro_price.'</td> 
+                       
+              <td class="text-center">
+              '.form_open("Client_Panier/addToCart/").'
+                  <input type="hidden" name="proId" value=" '.$product->pro_id.'">
+                  <input type="hidden" name="sId" value=" '. session_id().' ">
+                  <input type="hidden" name="userId" value=" ' .$this->session->userdata['user_id'].'">
+                  <button type="submit" name="addCart" class="btn btn-outline-success"><i class="fas fa fa-shopping-cart"></i></button>
+              </form>             
+              </td>
+              </tr>
+          </tbody>
+        </table>' ;
+
+        }
+      }else{
+        echo '<div class="bg_dark text-warning text-center text-uppercase">Aucun résultat pour:<span class="text-danger font-weight-bold"> '.$searchCity.'</span></div>';
+      }
+
+      
+    }
+
+
+
 
 
 

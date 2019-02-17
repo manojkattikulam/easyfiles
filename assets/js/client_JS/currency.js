@@ -1,5 +1,3 @@
-$('[data-toggle="tooltip"]').tooltip();
-
 // CURRENCY CONVERTER
 
 function convertCurrency() {

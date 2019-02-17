@@ -120,6 +120,14 @@ class Clients_dashbd_model extends CI_Model {
        return $this->db->update('customers', $data);
  
      }
+
+     public function SearchAjax($searchCont, $searchCity)
+     {
+ 
+       $query = $this->db->query("SELECT * FROM products WHERE cat_id = '$searchCont' AND pro_name LIKE '%$searchCity%' ORDER BY RAND() LIMIT 1");
+       return $query->result();
+ 
+     }
  
 
 
