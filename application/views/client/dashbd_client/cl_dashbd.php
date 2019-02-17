@@ -26,7 +26,7 @@
 
           <div class="col-md-6">
             <div class="form-group">
-              <label for="continent">Séléctionner le continent</label>
+              <label for="continent"><i class="fa fa-globe fa-lg mr-3"></i>Sélectionnez un continent</label>
               <select class="form-control" id="continent">
               <?php foreach($getCatClients as $catClients): ?>
                 <option value="<?php echo $catClients->cat_id ?>"><?php echo $catClients->cat_name ?></option>
@@ -37,8 +37,8 @@
 
           <div class="col-md-6">
             <div class="form-group">
-              <label for="searchCountry">Rechercher le Fichier par Ville</label>
-              <input type="text" class="form-control" name="searchCity" id="searchCity" placeholder="Chercher une ville...">
+              <label for="searchCountry"><i class="fa fa-search fa-lg mr-3"></i>Recherche par ville</label>
+              <input type="text" class="form-control" name="searchCity" id="searchCity" placeholder="Rechercher une ville...">
             </div>
           </div>
           <div class="col-12">
@@ -181,6 +181,9 @@ $('#searchCity').keyup(function(){
       {
         $('#searchResults').html(result);
       }
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+        alert("Error...");
     }
 
   });
