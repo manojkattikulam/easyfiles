@@ -43,6 +43,14 @@ body {
 
 /* HEADER */
 
+.logo {
+    background-color: white;
+    width: 50px;
+    margin: 5px;
+    border-radius: 20%;
+    padding: 5px
+}
+
 header {
     height: 100vh;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url(../images/easyfiles_banner.jpg) no-repeat center center / cover;
@@ -50,7 +58,7 @@ header {
 }
 
 header .home-inner {
-    padding-top: 150px;
+    padding-top: 200px;
 }
 
 .home-inner h1 {

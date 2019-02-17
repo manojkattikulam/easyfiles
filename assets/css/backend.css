@@ -15,6 +15,13 @@ body {
 
 /* navbar */
 
+.logo {
+    background-color: white;
+    margin: 5px;
+    border-radius: 20%;
+    padding: 5px
+}
+
 .sidebar {
     height: 100vh;
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url(../images/img1.jpg) no-repeat center center / cover;

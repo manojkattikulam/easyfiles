@@ -1,5 +1,3 @@
-// ****** JS FOR FRONT END LAYOUT ****** //
-
 $(document).ready(function() {
 
 
@@ -18,13 +16,4 @@ $(document).ready(function() {
 
 
 
-
 });
-
-
-
-
-
-
-
-// ******  END JS FOR FRONT END LAYOUT ****** //

@@ -36,7 +36,7 @@
             <div class="row">
                 <!-- sidebar -->
                 <div class="col-xl-2 col-lg-3 col-md-4 sidebar fixed-top">
-                    <a href="<?php echo base_url('Admin_Dashbd');?>" class="navbar-brand text-white d-block mx-auto py-3 mb-4 bottom-border text-center"><i class="fas fa-file mr-2 text-secondary"></i><span class="text-light">EASY</span><span class="text-orange mr-3">Files</span></a>
+                    <a href="<?php echo base_url('Admin_Dashbd');?>" class="navbar-brand text-white d-block mx-auto py-3 mb-4 bottom-border text-center"><img class="logo" src="<?php echo base_url('assets/images/logo.png');?>" alt="logo" width="50"></i><span class="text-light">EASY</span><span class="text-orange mr-3">Files</span></a>
                     <p class="text-muted">Administrator</p>
                     <ul class="navbar-nav flex-column mt-4">
                         <li class="nav-item"><a href="<?php echo base_url('Admin_Dashbd');?>" class="nav-link text-white p-3 mb-2 sidebar-link "><i class="fas fa-home text-light fa-lg mr-3 "></i>Dashboard</a></li>

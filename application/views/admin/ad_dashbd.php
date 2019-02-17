@@ -1,4 +1,5 @@
 <!-- tables -->
+
 <section>
       <div class="container-fluid">
         <div class="row mb-5">
@@ -8,6 +9,18 @@
             <!--table client-->
               <div class="col-xl-8 col-12 mb-4 mb-xl-0">
                 <h3 class="text-muted text-center mb-3"> Clients - un apérçu d'achats</h3>
+
+              <!-- ALERT MESSAGE -->       
+              <?php if($this->session->flashdata('class')): ?>
+                  <div class="alert <?php echo $this->session->flashdata('class');?> alert-dismissible fade show text-center" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button> 
+                  <?php echo $this->session->flashdata('message');?>
+                  </div>
+              <?php endif; ?>
+              <!--END ALERT MESSAGE -->  
+
                 <table class="table table-striped bg-light">
                   <thead>
                   <?php $i = 0; ?>

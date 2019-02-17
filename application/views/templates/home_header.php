@@ -30,7 +30,7 @@
 <header>
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg fixed-top nav-menu">
-      <a href="<?php echo base_url(); ?>" class="navbar-brand text-light"><span class="h2 font-weight-bold">EASY</span><span class=" h2 orange">Files</span></a>
+    <a href="<?php echo base_url('Admin_Dashbd');?>" class="navbar-brand text-white d-block mx-auto bottom-border text-center"><img class="logo" src="<?php echo base_url('assets/images/logo.png');?>" alt="logo" ></i><span class="text-light">EASY</span><span class="orange mr-3">Files</span></a>
       <button class="navbar-toggler nav-button" type="button" data-toggle="collapse" data-target="#myNavbar">
         <div class="bg-light line1"></div>
         <div class="bg-light line2"></div>

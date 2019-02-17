@@ -50,7 +50,7 @@
             </form>
             <div class="text-white text-center"><a class="nav-link mt-3 p-3 text-info" href="<?php echo base_url('home');?>">Pas inscrit ? Inscrivez-vous</a></div>
             
-            <div class="text-white text-center"><a class="nav-link text-warning" href="">Mot de passe oublié ?</a></div>
+            <div class="text-white text-center"><a class="nav-link text-warning" href="<?php echo base_url('Client_ForgotPassword'); ?>">Mot de passe oublié ?</a></div>
           </div>
         </div>
       </div>

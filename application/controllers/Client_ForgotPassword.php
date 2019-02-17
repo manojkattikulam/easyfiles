@@ -3,6 +3,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Client_ForgotPassword extends CI_Controller {
 
+
+public function index(){
+
+  if(isset($_SESSION['login']) == TRUE ){
+
+    redirect('client_dashbd');
+
+  } else {
+
+    $this->load->view('templates/home_header');
+    $this->load->view('client/forgot_password/cl_forgotPassword');
+    $this->load->view('templates/home_footer');
+
+  }
+
+}
+
   
 // CUSTOMER PASSWORD RESET 
 public function resetpassword(){
@@ -20,7 +37,7 @@ public function resetpassword(){
   if($this->form_validation->run() == FALSE) {
 
     $this->load->view('templates/home_header');
-    $this->load->view('client/login_client/cl_login');
+    $this->load->view('client/forgot_password/cl_forgotPassword');
     $this->load->view('templates/home_footer');
 
   } else { 
