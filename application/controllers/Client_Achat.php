@@ -39,7 +39,7 @@ class Client_Achat extends CI_Controller {
 			);
 
 			$this->load->view('templates/client_header.php');
-			$this->load->view('Client/dashbd_client/cl_payment', $data);
+			$this->load->view('Client/dashbd_client/cl_paymentprocess', $data);
 			$this->load->view('templates/client_footer.php');
 
 		} else {

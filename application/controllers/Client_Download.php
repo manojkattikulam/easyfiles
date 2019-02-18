@@ -21,7 +21,7 @@ public function telecharger()
 					$this->load->view('templates/client_footer.php');
 			} else {
 
-        setFlashData("alert-danger","Il n'y a pas des fichiers pour télécharger","Client_Dashbd");
+        setFlashData("alert-danger","Aucun fichier à télécharger pour le moment","Client_Dashbd");
 				
 
 			}

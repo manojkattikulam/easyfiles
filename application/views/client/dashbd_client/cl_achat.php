@@ -74,7 +74,7 @@
           
 
           <?php else: ?>
-                <p class="bg-danger text-white text-center p-3">Il n'y a pas les fichiers à télécharger</p>
+                <p class="bg-danger text-white text-center p-3"> Vous n'avez encore rien acheté, passez à l'achat</p>
           <?php endif; ?>
 
         </div><!--end of content div -->

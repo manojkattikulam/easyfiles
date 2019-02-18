@@ -15,7 +15,7 @@
     <p>Votre détails d'achat est envoyé à votre email:&nbsp;<?php echo $this->session->userdata('email'); ?>.</p>
    <p> Veuillez garder le numéro de transactions pour le réference.</p>
 
-    <p><a href="<?php echo base_url('orders/telecharger');?>">Télécharger votre fichiers</a></p>              
+    <p><a href="<?php echo base_url('Client_Download/telecharger');?>">Télécharger votre fichiers</a></p>              
 </div>
 
   

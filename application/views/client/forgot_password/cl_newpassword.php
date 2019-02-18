@@ -23,7 +23,7 @@
 
           <?php $attr_register = array('id'=>'form_register','role'=>'form');?>
 
-          <?php echo form_open('client_forgotpassword/newpassword', $attr_register) ?>
+          <?php echo form_open('Client_Forgotpassword/newpassword', $attr_register) ?>
 
           <?php echo validation_errors('<div class="alert alert-register"><a href="#" class="close ml-3" data-dismiss="alert" aria-label="close">x</a>', '</div>'); ?>
 

@@ -137,16 +137,7 @@
                     <img alt="" width="1" height="1"
                     src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif">
                     </form>
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
+              
                    
                    </td><!--end paypal form -->
                    <td class="bg-dark text-white text-center">Prix TTC</td>
@@ -162,7 +153,7 @@
         
           
           <?php else: ?>
-                <p class="bg-danger text-white text-center p-3">Il n'y a pas les produits dans le panier</p>
+                <p class="bg-danger text-white text-center p-3">Aucun produit dans le panier pour l'instant, veuillez ajouter</p>
               
           <?php endif; ?>
          
